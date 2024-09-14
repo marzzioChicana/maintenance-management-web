@@ -1,0 +1,23 @@
+<p-card styleClass="spare-part-card">
+    <ng-template pTemplate="header">
+      <div class="card-header">
+        <p-badge [value]="sparePart.code" styleClass="category-badge"></p-badge>
+      </div>
+    </ng-template>
+    <div class="card-content">
+      <h2>{{sparePart.name}}</h2>
+      <div class="price-stock">
+        <span class="price">${{sparePart.price.toFixed(2)}}</span>
+        <p-badge [value]="getStockLabel(sparePart.quantity)" [severity]="getSeverity(sparePart.quantity)"></p-badge>
+      </div>
+      <div class="complement-information">
+        <p>Quantity: {{sparePart.quantity}} units</p>
+        <p>Supplier: {{sparePart.supplier}}</p>
+      </div>
+    </div>
+    <ng-template pTemplate="footer">
+      <p-button label="Add to Cart" icon="pi pi-shopping-cart" styleClass="add-to-cart-btn" (click)="openDialog()"></p-button>
+    </ng-template>
+</p-card>
+
+<app-create-maintenance-dialog [sparePart]="sparePart" [(visible)]="isDialogVisible"></app-create-maintenance-dialog>

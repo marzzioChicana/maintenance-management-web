@@ -1,0 +1,61 @@
+<div class="add-card">
+    <div class="photo">
+        <label for="file-upload" id="image-upload-label">
+            <img [src]="photo" alt="Photo" id="image-preview">
+        </label>
+        <input id="file-upload" type="file" accept="image/*" style="display: none;" (change)="onImageSelected($event)">
+    </div>
+
+    <hr class="divider">
+
+    <div>
+        <form [formGroup]="addMachineForm" (ngSubmit)="saveMachine()" class="add-machine-form-container">
+            <div class="field">
+                <label for="name" class="block">Name</label>
+                <input
+                    type="text"
+                    pInputText
+                    placeholder="Name"
+                    formControlName="name"
+                />
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="type" class="block">Type</label>
+                    <p-dropdown 
+                        formControlName="type"
+                        [options]="types"
+                        optionLabel="label"
+                        placeholder="Type" />
+                </div>
+
+                <div class="field">
+                    <label for="acquisitionDate" class="block">Acquisition Date</label>
+                    <p-calendar 
+                        formControlName="acquisitionDate" 
+                        dateFormat="dd.mm.yy" 
+                        placeholder="Acquisition Date"/>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="status" class="block">Status</label>
+                    <p-dropdown 
+                        formControlName="status"
+                        [options]="status"
+                        optionLabel="label"
+                        placeholder="Status" />
+                </div>
+
+                <div class="field">
+                    <label for="usefulLife" class="block">Useful Life</label>
+                    <p-inputNumber inputId="integeronly" formControlName="usefulLife"/>
+                </div>
+            </div>
+
+            <p-button label="Submit" type="submit" [raised]="true" severity="secondary" [disabled]="addMachineForm.invalid"/>
+        </form>
+    </div>
+</div>

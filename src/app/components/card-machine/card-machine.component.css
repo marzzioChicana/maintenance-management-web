@@ -1,0 +1,108 @@
+::ng-deep .p-card .p-card-body {
+    padding: 0 1.25rem;
+}
+
+.card-container {
+    display: block;
+    width: 300px;
+    height: 390px;
+}
+
+::ng-deep .p-card.p-component {
+    height: 100%;
+}
+
+.card-img {
+    border-radius: 6px;
+}
+
+::ng-deep .p-card-header img {
+    height: 240px;
+    object-fit: cover;
+}
+
+.card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.card-status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+
+::ng-deep .p-card .p-card-title {
+    font-size: 1.2rem;
+}
+
+::ng-deep .p-card .p-card-subtitle {
+    font-size: .9rem;
+    margin-top: 1rem;
+}
+
+.card-last-maintenance {
+    font-size: .9rem;
+}
+
+/* ESTILOS DE DIALOG */
+::ng-deep .p-dialog {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+::ng-deep .p-dialog .p-dialog-header {
+    background-color: #232323ff;
+    color: white;
+    font-weight: bold;
+}
+
+::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+    font-size: 1.5rem;
+}
+
+::ng-deep .p-dialog .p-dialog-content {
+    padding: 1.5rem;
+}
+
+.dialog-img-container {
+    display: flex;
+}
+
+::ng-deep .p-dialog .p-dialog-content img {
+    margin: 0 auto;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+:ng-deep .p-dialog .p-dialog-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+::ng-deep .p-dialog .p-dialog-content p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+.dialog-btn-container {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+.dialog-btn-container > *:first-child {
+    margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .p-dialog {
+        width: 90vw;
+    }
+}

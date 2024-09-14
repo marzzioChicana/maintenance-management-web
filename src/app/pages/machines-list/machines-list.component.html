@@ -1,0 +1,33 @@
+<body>
+    <app-toolbar></app-toolbar>
+
+    <div *ngIf="isLoading; else content" class="loading-container">
+        <p-progressSpinner 
+            styleClass="w-4rem h-4rem" 
+            strokeWidth="8" 
+            fill="var(--surface-ground)" 
+            animationDuration=".5s" />
+    </div>
+
+    <ng-template #content>
+        <div *ngIf="isMachinesEmpty(); else nonEmptyList">
+            <div class="empty-list">
+                <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" (click)="goToAddMachineComponent()"/>
+                <p>Add your first machine!!!</p>
+            </div>
+        </div>
+
+        <ng-template #nonEmptyList>
+            <div class="machines-grid section">
+                <div *ngFor="let machine of machines">
+                    <app-card-machine [machine]="machine"></app-card-machine>
+                </div>
+
+                <div class="add-machine-btn">
+                    <p-button icon="pi pi-plus" [rounded]="true" severity="secondary" (click)="goToAddMachineComponent()"/>
+                    <p>Add a machine</p>
+                </div>
+            </div>
+        </ng-template>
+    </ng-template>
+</body>

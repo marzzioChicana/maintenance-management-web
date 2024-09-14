@@ -1,0 +1,26 @@
+<div class="maintenance-view">
+  <h2>Maintenance Records</h2>
+  <p-table #dt [value]="maintenances" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+           [tableStyle]="{'min-width': '60rem'}"
+           [loading]="loading"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="machine.name">Machine Name <p-sortIcon field="machineName"></p-sortIcon></th>
+        <th pSortableColumn="sparePart.name">Spare Part <p-sortIcon field="sparePartName"></p-sortIcon></th>
+        <th pSortableColumn="quantity">Quantity <p-sortIcon field="quantity"></p-sortIcon></th>
+        <th pSortableColumn="cost">Total Price <p-sortIcon field="totalPrice"></p-sortIcon></th>
+        <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-maintenance>
+      <tr>
+        <td>{{maintenance.machine.name}}</td>
+        <td>{{maintenance.sparePart.name}}</td>
+        <td>{{maintenance.quantity}}</td>
+        <td>{{maintenance.cost | currency:'USD':'symbol':'1.2-2'}}</td>
+        <td>{{maintenance.date | date:'yyyy-MM-dd'}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

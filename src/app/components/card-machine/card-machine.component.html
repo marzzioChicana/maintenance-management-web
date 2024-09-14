@@ -1,0 +1,46 @@
+<p-card class="card-container" (click)="showDialog(machine)">
+    <ng-template pTemplate="header">
+        <img alt="Card" class="card-img" [src]="machine.photo" />
+    </ng-template>
+    <ng-template pTemplate="subheader">
+        <div class="card-content">
+            <div>
+                <div class="p-card-title">
+                    {{machine.name}}
+                </div>
+                <div class="p-card-subtitle">
+                    {{machine.type}}
+    
+                    <div class="card-status">
+                        <i class="pi pi-gauge"></i>
+                        Status: {{machine.status}}
+                    </div>
+                </div>
+            </div>  
+            <div class="card-last-maintenance">
+                <i class="pi pi-calendar"></i> Last Maintenance: {{lastMaintenanceFormat}}
+            </div>
+        </div>
+    </ng-template>
+</p-card>
+
+<!-- Dialog Component -->
+<p-dialog header="Machine Details" [(visible)]="displayDialog" [modal]="true" [responsive]="true" [style]="{width: '50vw'}" (onHide)="onHide()">
+    <div>
+        <div class="dialog-img-container">
+            <img alt="Card" class="card-img" [src]="selectedMachine?.photo"/>
+        </div>
+        <div>
+            <h2>{{selectedMachine?.name}}</h2>
+            <p><strong>Type:</strong> {{selectedMachine?.type}}</p>
+            <p><strong>Status:</strong> {{selectedMachine?.status}}</p>
+            <p><strong>Acquisition Date:</strong> {{acquisitionDateFormat}}</p>
+            <p><strong>Last Maintenance:</strong> {{lastMaintenanceFormat}}</p>
+            <p><strong>Useful Life:</strong> {{selectedMachine?.usefulLife}} years</p>
+        </div>
+    </div>
+    <div class="dialog-btn-container">
+        <p-button label="Edit" severity="secondary" (onClick)="editMachine()"/>
+        <p-button label="Delete" severity="danger" (onClick)="deleteMachine()" />
+    </div>
+</p-dialog>

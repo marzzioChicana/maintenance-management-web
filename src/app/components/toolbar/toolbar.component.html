@@ -1,0 +1,28 @@
+<header class="header">
+    <nav class="nav container">
+       <div class="nav__data">
+          <div class="nav__logo">
+             <img src="../../../assets/img/toolbar/logo_maintenance_management.png" alt="" class="nav__logo-img">
+          </div>
+          
+          <div class="nav__toggle" id="nav-toggle" #navToggle>
+             <i class="pi pi-bars nav__burger"></i>
+             <i class="pi pi-times nav__close"></i>
+          </div>
+       </div>
+
+       <div class="nav__menu" id="nav-menu" #navMenu>
+          <ul class="nav__list">
+             <li><a (click)="goToMachines()" class="nav__link">Machines</a></li>
+
+             <li><a (click)="goToAddMachines()" class="nav__link">Add Machine</a></li>
+
+             <li><a (click)="goToMaintenances()" class="nav__link">Maintenances</a></li>
+
+             <li><a (click)="goToSpareParts()" class="nav__link">Spare Parts</a></li>
+
+             <li><a (click)="goToClose()" class="nav__link">Close</a></li>
+          </ul>
+       </div>
+    </nav>
+</header>

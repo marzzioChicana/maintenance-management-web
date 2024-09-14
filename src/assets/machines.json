@@ -1,0 +1,54 @@
+{
+    "machines": [
+        {
+            "id": 1,
+            "name": "CNC Alpha 6000",
+            "type": "Lathe",
+            "acquisitionDate": "2020-01-01",
+            "status": "Active",
+            "lastMaintenance": "2024-01-01",
+            "usefulLife": 10,
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "name": "CNC Beta 6000",
+            "type": "Milling",
+            "acquisitionDate": "2020-01-01",
+            "status": "Active",
+            "lastMaintenance": "2024-01-01",
+            "usefulLife": 10,
+            "userId": 1
+        },
+        {
+            "id": 3,
+            "name": "CNC Gamma 6000",
+            "type": "Lathe",
+            "acquisitionDate": "2020-01-01",
+            "status": "Active",
+            "lastMaintenance": "2024-01-01",
+            "usefulLife": 10,
+            "userId": 1
+        },
+        {
+            "id": 4,
+            "name": "CNC Delta 6000",
+            "type": "Milling",
+            "acquisitionDate": "2020-01-01",
+            "status": "Active",
+            "lastMaintenance": "2024-01-01",
+            "usefulLife": 10,
+            "userId": 1
+        },
+        {
+            "id": 5,
+            "name": "CNC Epsilon 6000",
+            "type": "Lathe",
+            "acquisitionDate": "2020-01-01",
+            "status": "Active",
+            "lastMaintenance": "2024-01-01",
+            "usefulLife": 10,
+            "userId": 1
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+<ul class="background">
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+</ul>
+
+<div class="form-container">
+    <div class="text-container">
+        <h1>Create an account</h1>
+        <p>Fill in the details below to create a new account.</p>
+    </div>
+
+    <div class="input-container">
+        <div class="input-form">
+            <label for="username">Username</label>
+            <input 
+                pInputText 
+                id="username" 
+                aria-describedby="username-help" 
+                [(ngModel)]="username" />
+        </div>
+
+        <div class="input-form">
+            <label for="email">Email</label>
+            <input 
+                pInputText 
+                id="email" 
+                aria-describedby="email-help" 
+                [(ngModel)]="email" />
+        </div>
+        
+        <div class="input-form">
+            <label for="password">Password</label>
+            <input 
+                pInputText 
+                id="password" 
+                aria-describedby="password-help" 
+                [(ngModel)]="password" />
+        </div>
+
+        <div class="input-form">
+            <label for="confirm-password">Confirm Password</label>
+            <input 
+                pInputText 
+                id="confirm-password" 
+                aria-describedby="confirm-password-help" 
+                type="password"
+                [(ngModel)]="confirmPassword" />
+        </div>
+    </div>
+    
+    <div>
+        <p-button label="Sign Up" severity="contrast" (onClick)="signUp()"/>
+    </div>
+
+    <div class="text-container">
+        <p>If you have an account. <a class="link-style" (click)="goToSignIn()">Click here</a></p>
+    </div>
+</div>

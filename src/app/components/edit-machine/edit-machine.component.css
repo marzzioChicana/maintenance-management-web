@@ -1,0 +1,64 @@
+.add-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.add-machine-form-container {
+  width: 430px;
+}
+
+.photo {
+  height: auto;
+  width: 110px;
+}
+
+.photo img {
+  width: 100%;
+}
+
+.divider {
+  width: 430px;
+  border: 0;
+  height: 2px;
+  background: #000;
+  margin: 20px 0;
+}
+
+.field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+::ng-deep .field input,
+::ng-deep .field .p-dropdown,
+::ng-deep .field .p-calendar,
+::ng-deep .field .p-inputNumber {
+  width: 100%;
+}
+
+.add-machine-form-container > *:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.add-machine-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+::ng-deep .add-machine-form-container .p-button {
+  padding: 1rem 4rem;
+}

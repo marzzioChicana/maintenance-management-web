@@ -1,0 +1,104 @@
+::ng-deep .p-dialog {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.container-form {
+    padding-top: 1rem;
+}
+
+::ng-deep .p-dialog .p-dialog-header {
+  background-color: #232323;
+  color: #ffffff;
+  border-bottom: 1px solid #4a4a4a;
+}
+
+::ng-deep .p-dialog .p-dialog-content {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+::ng-deep .p-dialog .p-dialog-footer {
+  background-color: #232323;
+  color: #ffffff;
+  border-top: 1px solid #4a4a4a;
+  padding: 1rem;
+}
+
+::ng-deep .p-dropdown,
+::ng-deep .p-inputtext,
+::ng-deep .p-inputnumber-input {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  border: 1px solid #4a4a4a;
+}
+
+::ng-deep .p-dropdown-panel {
+  background-color: #3a3a3a;
+}
+
+::ng-deep .p-dropdown-item {
+  color: #ffffff;
+}
+
+::ng-deep .p-dropdown-item:hover {
+  background-color: #4a4a4a;
+}
+
+::ng-deep .p-inputnumber-button-up,
+::ng-deep .p-inputnumber-button-down {
+  background-color: whitesmoke;
+  color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+::ng-deep .p-inputnumber-button-up:hover,
+::ng-deep .p-inputnumber-button-down:hover {
+  background-color: #3d9089;
+}
+
+::ng-deep .p-button.p-button-text {
+  background-color: #ffffff;
+  color: black;
+  border: none;
+}
+
+::ng-deep .p-dialog-header .p-button {
+  background-color: #ffffff;
+  border: none;
+}
+
+::ng-deep .p-button:hover.p-button-text {
+  background-color: #3d9089;
+}
+
+::ng-deep .p-dialog-header .p-button:hover {
+  background-color: #3d9089;
+}
+
+::ng-deep .p-button:disabled {
+  background-color: #3a3a3a;
+  opacity: 0.6;
+}
+
+.p-field {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.p-error {
+  color: #ff5252;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.total-cost {
+  font-size: 1.25rem !important;
+  font-weight: bold;
+  color: #4db6ac !important;
+}

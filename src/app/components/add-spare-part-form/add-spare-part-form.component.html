@@ -1,0 +1,48 @@
+<div class="add-spare-part-container">
+  <h2>Add New Spare Part</h2>
+  <form [formGroup]="sparePartForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText formControlName="name" placeholder="Enter part name">
+        <small class="p-error" *ngIf="sparePartForm.get('name')?.invalid && sparePartForm.get('name')?.touched">
+          Name is required and must be at least 3 characters long.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="code">Code</label>
+        <input id="code" type="text" pInputText formControlName="code" placeholder="Enter part code">
+        <small class="p-error" *ngIf="sparePartForm.get('code')?.invalid && sparePartForm.get('code')?.touched">
+          Code is required and must contain only letters, numbers, and hyphens.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="quantity">Quantity</label>
+        <p-inputNumber id="quantity" formControlName="quantity" [showButtons]="true" [min]="0" [step]="1"></p-inputNumber>
+        <small class="p-error" *ngIf="sparePartForm.get('quantity')?.invalid && sparePartForm.get('quantity')?.touched">
+          Quantity is required and must be 0 or greater.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="supplier">Supplier</label>
+        <input id="supplier" type="text" pInputText formControlName="supplier" placeholder="Enter supplier name">
+        <small class="p-error" *ngIf="sparePartForm.get('supplier')?.invalid && sparePartForm.get('supplier')?.touched">
+          Supplier is required.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="price">Price</label>
+        <p-inputNumber id="price" formControlName="price" mode="currency" currency="USD" locale="en-US" [minFractionDigits]="2"></p-inputNumber>
+        <small class="p-error" *ngIf="sparePartForm.get('price')?.invalid && sparePartForm.get('price')?.touched">
+          Price is required and must be greater than 0.
+        </small>
+      </div>
+
+      <p-button type="submit" label="Add Spare Part" [disabled]="sparePartForm.invalid"></p-button>
+    </div>
+  </form>
+</div>

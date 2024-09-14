@@ -1,0 +1,113 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.spare-parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+::ng-deep .spare-part-card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+::ng-deep .spare-part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.15), -8px -8px 20px rgba(255,255,255,0.7);
+}
+
+::ng-deep .spare-part-card .p-card-body {
+  padding: 0;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #232323ff, #5a5a5a);
+  padding: 1rem;
+  text-align: right;
+}
+
+::ng-deep .category-badge.p-badge {
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.card-content {
+  padding: 1.5rem 1.5rem 0;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.complement-information {
+    padding-top: 2rem;
+}
+
+.price-stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+}
+
+::ng-deep .add-to-cart-btn {
+  width: 100%;
+}
+
+::ng-deep .p-button.add-to-cart-btn{
+  width: 100%;
+  background-color: #444444;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+::ng-deep .p-button:hover.add-to-cart-btn  {
+  background-color: #232323ff;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .spare-parts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .spare-parts-grid {
+    grid-template-columns: 1fr;
+  }
+}

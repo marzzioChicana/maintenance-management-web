@@ -1,0 +1,39 @@
+<p-dialog [(visible)]="visible" [style]="{width: '450px'}" header="Purchase Spare Part" [modal]="true" styleClass="p-fluid" (onHide)="closeDialog()">
+  <ng-template pTemplate="content">
+    <form [formGroup]="purchaseForm" (ngSubmit)="onSubmit()" class="container-form">
+      <div class="p-field">
+        <label for="machine">Machine</label>
+        <p-dropdown id="machine" [options]="machines" optionLabel="name" formControlName="machine" placeholder="Select a machine" [style]="{'width':'100%'}"></p-dropdown>
+        <small class="p-error" *ngIf="purchaseForm.get('machine')?.invalid && purchaseForm.get('machine')?.touched">
+          Machine is required.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="quantity">Quantity</label>
+        <p-inputNumber id="quantity" formControlName="quantity" [showButtons]="true" [min]="1" [max]="sparePart.quantity" [step]="1"></p-inputNumber>
+        <small class="p-error" *ngIf="purchaseForm.get('quantity')?.invalid && purchaseForm.get('quantity')?.touched">
+          Quantity is required and must be between 1 and {{sparePart.quantity}}.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="description">Description</label>
+        <textarea id="description" pInputTextarea formControlName="description" rows="3"></textarea>
+        <small class="p-error" *ngIf="purchaseForm.get('description')?.invalid && purchaseForm.get('description')?.touched">
+          Description is required.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label>Total Cost</label>
+        <p class="total-cost">${{totalCost.toFixed(2)}}</p>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="closeDialog()"></button>
+    <button pButton pRipple label="Purchase" icon="pi pi-check" class="p-button-text" (click)="onSubmit()" [disabled]="purchaseForm.invalid"></button>
+  </ng-template>
+</p-dialog>
