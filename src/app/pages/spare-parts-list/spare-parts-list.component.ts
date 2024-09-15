@@ -49,4 +49,9 @@ export class SparePartsListComponent implements OnInit{
   isSparePartsEmpty(): boolean {
     return this.spareParts.length === 0;
   }
+
+  handleRefresh() {
+    this.loadSpareParts();
+    console.log('Refreshed');
+  }
 }

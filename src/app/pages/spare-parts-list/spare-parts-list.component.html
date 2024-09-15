@@ -21,7 +21,7 @@
         <ng-template #nonEmptyList>
             <div class="spare-parts-grid section">
                 <div *ngFor="let sparePart of spareParts">
-                    <app-card-spare-part [sparePart]="sparePart"></app-card-spare-part>
+                    <app-card-spare-part [sparePart]="sparePart" (refreshData)="handleRefresh()"></app-card-spare-part>
                 </div>
 
                 <div class="add-spare-part-btn">

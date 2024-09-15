@@ -46,7 +46,7 @@ export class EditMachineComponent implements OnInit{
     acquisitionDate: ['', Validators.required],
     status: [null as Status | null, Validators.required],
     usefulLife: ['', Validators.required],
-    imageActive: [null as File | null, Validators.required]
+    imageActive: [null as File | null]
   });
 
   constructor(private router: Router, private storage: Storage, private ngZone: NgZone, private fb: FormBuilder, private machineService: MachineService, private authenticationService: AuthenticationService) {}
@@ -140,35 +140,42 @@ export class EditMachineComponent implements OnInit{
   }
 
   saveMachine() {
-    this.uploadImage(this.image);
-    this.downloadURL$.subscribe(url => {
-      const MachineRequestToUpdate: MachineRequestToUpdate = {
-        id: this.machineInit.id,
-        name: this.addMachineForm.value.name ?? '',
-        type: this.addMachineForm.value.type?.value ?? '',
-        acquisitionDate: this.addMachineForm.value.acquisitionDate 
-        ? new Date(this.addMachineForm.value.acquisitionDate) 
+    if (this.image) {
+      this.uploadImage(this.image);
+      this.downloadURL$.subscribe(url => {
+        this.submitMachineForm(url);
+      });
+    } else {
+      this.submitMachineForm(this.photo);
+    }
+  }
+
+  submitMachineForm(photoUrl: string) {
+    const MachineRequestToUpdate: MachineRequestToUpdate = {
+      id: this.machineInit.id,
+      name: this.addMachineForm.value.name ?? '',
+      type: this.addMachineForm.value.type?.value ?? '',
+      acquisitionDate: this.addMachineForm.value.acquisitionDate
+        ? new Date(this.addMachineForm.value.acquisitionDate)
         : new Date(),
-        status: this.addMachineForm.value.status?.value ?? '',
-        lastMaintenance: null,
-        usefulLife: parseInt(this.addMachineForm.value.usefulLife ?? ''),
-        photo: url,
-        userId: this.authenticationService.getCurrentUserId()
+      status: this.addMachineForm.value.status?.value ?? '',
+      lastMaintenance: this.machineInit.lastMaintenance,
+      usefulLife: parseInt(this.addMachineForm.value.usefulLife ?? ''),
+      photo: photoUrl,
+      userId: this.authenticationService.getCurrentUserId()
+    };
+  
+    console.log(MachineRequestToUpdate);
+  
+    this.machineService.updateMachine(MachineRequestToUpdate).subscribe(
+      () => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/machines']);
+        });
+      },
+      (error) => {
+        console.error(error);
       }
-
-      console.log(this.addMachineForm.value);
-
-      console.log(MachineRequestToUpdate);
-
-      this.machineService.updateMachine(MachineRequestToUpdate).subscribe(
-        () => {
-          this.ngZone.run(() => {
-            this.router.navigate(['/machines']);
-          });
-        }, (error) => {
-          console.error(error);
-        }
-      )
-    })
+    );
   }
 }

@@ -18,6 +18,7 @@ import { CreateMaintenanceDialogComponent } from "../create-maintenance-dialog/c
 export class CardSparePartComponent {
   @Input() sparePart!: SparePartResponse;
   isDialogVisible: boolean = false;
+  @Output() refreshData: EventEmitter<void> = new EventEmitter<void>();
 
   getSeverity(stock: number) {
     if (stock > 50) return 'success';
@@ -33,5 +34,10 @@ export class CardSparePartComponent {
 
   openDialog() {
     this.isDialogVisible = true;
+  }
+
+  handleRefresh() {
+    this.refreshData.emit();
+    console.log('Prev Refreshed');
   }
 }

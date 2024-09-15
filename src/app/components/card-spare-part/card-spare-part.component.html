@@ -20,4 +20,4 @@
     </ng-template>
 </p-card>
 
-<app-create-maintenance-dialog [sparePart]="sparePart" [(visible)]="isDialogVisible"></app-create-maintenance-dialog>
+<app-create-maintenance-dialog [sparePart]="sparePart" [(visible)]="isDialogVisible" (refreshData)="handleRefresh()"></app-create-maintenance-dialog>

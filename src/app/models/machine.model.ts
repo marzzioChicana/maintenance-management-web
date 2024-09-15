@@ -18,7 +18,7 @@ export interface MachineResponse {
     lastMaintenance: Date | null;
     usefulLife: number;
     photo: string;
-    userId: number;
+    user: any;
 }
 
 export interface MachineRequestToUpdate {

@@ -8,7 +8,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CommonModule } from '@angular/common';
-import { MachineResponse } from '../../models/machine.model';
+import { MachineRequestToUpdate, MachineResponse } from '../../models/machine.model';
 import { MachineService } from '../../services/machine/machine.service';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { MaintenanceService } from '../../services/maintenance/maintenance.service';
@@ -64,7 +64,6 @@ export class CreateMaintenanceDialogComponent implements OnInit{
   closeDialog() {
     this.visible = false;
     this.visibleChange.emit(this.visible);
-    this.refreshData.emit();
     this.purchaseForm.reset({ quantity: 1 });
   }
 
@@ -85,36 +84,14 @@ export class CreateMaintenanceDialogComponent implements OnInit{
 
       this.maintenanceService.createMaintenance(maintenanceRequest).subscribe(
         (data) => {
-          this.sparePartService.getSparePartById(this.sparePart.id).subscribe(
-            (data) => {
-              const updatedSparePart: SparePartRequest = {
-                name: data.name,
-                code: data.code,
-                quantity: data.quantity - maintenanceRequest.quantity,
-                supplier: data.supplier,
-                price: data.price,
-                userId: data.user.id
-              };
-
-              this.sparePartService.updateSparePart(data.id, updatedSparePart).subscribe(
-                (data) => {
-                },
-                (error) => {
-                  console.log(error);
-                }
-              )
-            },
-            (error) => {
-              console.log(error);
-            }
-          );
+          this.refreshData.emit();
+          this.closeDialog();
+          console.log('Prev Refreshed');
         },
         (error) => {
           console.log(error);
         }
       );
     }
-
-    this.router.navigate(['/machines']).then();
   }
 }
