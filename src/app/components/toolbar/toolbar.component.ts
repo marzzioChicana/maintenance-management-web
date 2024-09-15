@@ -1,6 +1,9 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
+import Swal from 'sweetalert2';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+
 @Component({
   selector: 'app-toolbar',
   standalone: true,
@@ -14,7 +17,7 @@ export class ToolbarComponent {
 
   menuVisible = false;
 
-  constructor(private renderer: Renderer2, private router: Router) {}
+  constructor(private renderer: Renderer2, private router: Router, private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
     this.setupMenu();
@@ -63,6 +66,17 @@ export class ToolbarComponent {
   }
 
   goToClose(): void {
-    this.router.navigate(['/close']).then();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to close the application?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.authenticationService.signOut();
+      }
+    })
   }
 }

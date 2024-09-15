@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { CloseComponent } from './components/close/close.component';
 import { MachinesListComponent } from './pages/machines-list/machines-list.component';
 import { AddMachineComponent } from './pages/add-machine/add-machine.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -14,7 +13,6 @@ export const routes: Routes = [
     {'path': '', redirectTo: '/sign-in', pathMatch: 'full'},
     {'path': 'sign-in', component: LoginComponent},
     {'path': 'sign-up', component: RegisterComponent},
-    {'path': 'close', component: CloseComponent},
     {'path': 'machines', component: MachinesListComponent},
     {'path': 'machines/add', component: AddMachineComponent},
     {'path': 'deletion/confirmation', component: DeletionConfirmationComponent},
