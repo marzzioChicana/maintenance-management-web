@@ -74,10 +74,8 @@ export class CreateMaintenanceDialogComponent implements OnInit{
 
   onSubmit() {
     if (this.purchaseForm.valid) {
-      let actualDate = new Date();
-
       const maintenanceRequest: MaintenanceRequest = {
-        date: actualDate,
+        date: new Date(),
         cost: this.totalCost,
         description: this.purchaseForm.get('description')?.value,
         quantity: this.purchaseForm.get('quantity')?.value,
